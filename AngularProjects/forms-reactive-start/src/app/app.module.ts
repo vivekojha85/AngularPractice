@@ -4,10 +4,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { FormsAssignmentComponent } from './forms-assignment/forms-assignment.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormsAssignmentComponent
   ],
   imports: [
     BrowserModule,
