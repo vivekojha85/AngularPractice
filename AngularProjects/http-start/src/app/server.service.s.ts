@@ -16,4 +16,8 @@ export class ServerServiceS{
     server,
     {headers: headers});
   }
+
+  getSevers(){
+    return this.http.get('https://myfirstproject-690bd.firebaseio.com/data.json');
+  }
 }
