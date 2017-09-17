@@ -38,16 +38,32 @@ export class AppComponent {
       );
   }
 
+  // onGet(){
+  //   this.serverService.getSevers().subscribe(
+  //     (response: Response) =>{
+  //       console.log(response);
+  //       const data = response.json();
+  //       console.log(data);
+  //     },
+  //     (error2) => console.log(error2)
+  //   );
+  // }
+  //
+  // onGet(){
+  //   this.serverService.getSevers().subscribe(
+  //     (servers: any[]) =>{ console.log(servers);},
+  //     (error2) => console.log(error2)
+  //   );
+  // }
+
+
   onGet(){
     this.serverService.getSevers().subscribe(
-      (response: Response) =>{
-        console.log(response);
-        const data = response.json();
-        console.log(data);
-      },
+      (servers: any[]) =>{ this.servers = servers},
       (error2) => console.log(error2)
     );
   }
+
   private generateId() {
     return Math.round(Math.random() * 10000);
   }

@@ -3,7 +3,8 @@
  */
 
 import {Injectable} from '@angular/core';
-import {Headers, Http} from '@angular/http';
+import {Headers, Http, Response} from '@angular/http';
+import 'rxjs/Rx';
 
 @Injectable()
 export class ServerServiceS{
@@ -21,7 +22,20 @@ export class ServerServiceS{
        {headers: headers});
   }
 
+  // getSevers(){
+  //   return this.http.get('https://myfirstproject-690bd.firebaseio.com/data.json');
+  // }
+
   getSevers(){
-    return this.http.get('https://myfirstproject-690bd.firebaseio.com/data.json');
+    return this.http.get('https://myfirstproject-690bd.firebaseio.com/data.json')
+      .map(
+        (response: Response) => {
+          const data = response.json();
+          for (const server of data){
+            server.name = 'FETCHED_'+server.name;
+          }
+          return data;
+        }
+        );
   }
 }
